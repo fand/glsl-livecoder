@@ -11,7 +11,8 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "jsx": "react"
   },
   "include": ["src", "typings"],
   "exclude": ["examples"]

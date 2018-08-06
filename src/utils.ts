@@ -16,7 +16,11 @@ export function convertPathForServer(
     }
 
     // Get relative path from projectPath
-    const relativePath = path.relative(projectPath, target);
+    let relativePath = path.relative(projectPath, target);
+
+    if (path.sep === '\\') {
+        relativePath = relativePath.replace(/\\/g, '/');
+    }
 
     return `http://localhost:${port}/link/${relativePath}`;
 }

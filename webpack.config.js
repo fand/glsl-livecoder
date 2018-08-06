@@ -9,12 +9,12 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts?$/,
+                test: /\.tsx?$/,
                 loader: 'ts-loader',
             },
         ],
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.tsx', '.js'],
     },
 };

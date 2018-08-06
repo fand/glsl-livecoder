@@ -32,7 +32,7 @@ export default class App {
 
     constructor(config: Config) {
         const rc = config.rc;
-        const view = new View((atom.workspace as any).element);
+        const view = new View((atom.workspace as any).element, rc);
         this.player = new Player(view, rc, false, this.lastShader);
 
         this.config = config;
@@ -72,7 +72,7 @@ export default class App {
                     lastShader: this.lastShader,
                 });
             } else {
-                const view = new View((atom.workspace as any).element);
+                const view = new View((atom.workspace as any).element, rc);
                 this.player = new Player(
                     view,
                     rc,

@@ -33,7 +33,7 @@ export default class PlayerClient {
                     clearTimeout(this.timer);
                 }
                 if (!this.player) {
-                    const view = new View(this.wrapper);
+                    const view = new View(this.wrapper, rc);
                     this.player = new Player(view, rc, isPlaying, lastShader);
                 }
             },

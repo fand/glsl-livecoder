@@ -38,6 +38,7 @@ export interface Pass {
     WIDTH?: string;
     HEIGHT?: string;
     BLEND?: BlendMode;
+    GLSL3?: boolean;
 }
 
 export type Shader = Pass[];

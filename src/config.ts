@@ -28,6 +28,7 @@ export interface RcPass {
     fs?: string;
     FLOAT?: boolean;
     BLEND?: BlendMode;
+    GLSL3?: boolean;
 }
 
 export interface Rc {

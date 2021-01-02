@@ -217,6 +217,7 @@ export default class App {
         postfix: string,
         dirname: string,
         useGlslify: boolean,
+        isGLSL3: boolean
     ): Promise<Pass[]> {
         if (rcPasses.length === 0) {
             rcPasses.push({});
@@ -234,6 +235,7 @@ export default class App {
                         WIDTH: rcPass.WIDTH,
                         HEIGHT: rcPass.HEIGHT,
                         BLEND: rcPass.BLEND,
+                        GLSL3: isGLSL3
                     };
 
                     if (!rcPass.fs && !rcPass.vs) {
@@ -336,12 +338,15 @@ export default class App {
                 await validator(this.glslangValidatorPath, shader, postfix);
             }
 
+            let matcharray = (shader.split('\n')[0].match(/(#version 300 es)/) || []);
+            let isGLSL3 = !!matcharray[0];
             const passes = await this.createPasses(
                 rc.PASSES,
                 shader,
                 postfix,
                 dirname,
-                rc.glslify
+                rc.glslify,
+                isGLSL3
             );
 
             if (isSound) {
